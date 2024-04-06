@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
-
+import { Message } from 'primeng/api';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
   loginForm: UntypedFormGroup;
   loginTitle: string = 'Sign in to your account';
   errorMessage: string = '';
+  username!: string;
+  password!: string;
+  messages: Message[] | undefined;
 
   constructor(private fb: UntypedFormBuilder) {
     this.loginForm = this.fb.group({
@@ -21,14 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.errorMessage = (window as { [key: string]: any })["usernameOrPasswordError"] as string;
-  }
-
-  get username(): UntypedFormControl {
-    return <UntypedFormControl> this.loginForm.get('username');
-  }
-
-  get password(): UntypedFormControl {
-    return <UntypedFormControl> this.loginForm.get('password');
   }
 
   onSubmit(): void {
