@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +8,11 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('loginFormHTMLElement', {read : ElementRef, static : true}) loginFormHTMLElement!: ElementRef;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   loginTitle: string = 'Sign in to your account';
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.loginForm = this.fb.group({
       username: [null, Validators.required],
       password: [null, Validators.required],
@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
     this.errorMessage = (window as { [key: string]: any })["usernameOrPasswordError"] as string;
   }
 
-  get username(): FormControl {
-    return <FormControl> this.loginForm.get('username');
+  get username(): UntypedFormControl {
+    return <UntypedFormControl> this.loginForm.get('username');
   }
 
-  get password(): FormControl {
-    return <FormControl> this.loginForm.get('password');
+  get password(): UntypedFormControl {
+    return <UntypedFormControl> this.loginForm.get('password');
   }
 
   onSubmit(): void {
