@@ -7,12 +7,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessagesModule } from 'primeng/messages';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent
-  ],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -20,9 +18,10 @@ import { MessagesModule } from 'primeng/messages';
     FormsModule,
     PasswordModule,
     InputTextModule,
-    MessagesModule
+    MessagesModule,
+    MatInputModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

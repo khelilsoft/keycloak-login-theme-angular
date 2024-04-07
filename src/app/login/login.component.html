@@ -24,28 +24,20 @@
           src="assets/img/logo.png"
           style="margin-bottom: 30px; height: 60px"
         />
-
         <div (ngSubmit)="onSubmit()">
           <div class="div" (keydown.enter)="onSubmit()">
-            <input
-              pInputText
-              name="username"
-              placeholder="Nom d'utilisateur"
-              id="username"
-              autocomplete="on"
-              [(ngModel)]="username"
-            />
+            <span class="p-float-label">
+              <input pInputText id="username" name="username" autocomplete="on" [(ngModel)]="username" />
+              <label htmlFor="username">Nom d'utilisateur</label>
+            </span>
           </div>
         </div>
         <div class="mt-4" (keydown.enter)="onSubmit()">
           <div class="div">
-            <p-password
-              id="password"
-              placeholder="Mot de passe"
-              name="password"
-              [(ngModel)]="password"
-              [feedback]="false"
-            />
+            <span class="p-float-label">
+              <p-password id="password" name="password" autocomplete="on" [(ngModel)]="password" [feedback]="false" />
+              <label htmlFor="password">Mot de passe</label>
+            </span>
           </div>
         </div>
         <input
